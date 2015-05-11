@@ -5,13 +5,22 @@ use Contracts\Repositories\RepositoryInterface;
 
 class DbRepository implements RepositoryInterface
 {
+	
+	/**
+     * @inheritDoc
+     */	
+	public function all()
+    {
+        return $this->model->all();
+    }
+    
 
     /**
      * @inheritDoc
      */
     public function find($id)
     {
-        //@todo modify with implementation
+        return $this->model->find($id);
     }
 
     /**
@@ -19,7 +28,7 @@ class DbRepository implements RepositoryInterface
      */
     public function findOrFail($id)
     {
-        //@todo modify with implementation
+        return $this->model->findOrFail($id);
     }
 
     /**
@@ -27,38 +36,54 @@ class DbRepository implements RepositoryInterface
      */
     public function all()
     {
-        //@todo modify with implementation
+        return $this->model->all();
     }
 
     /**
      * @inheritDoc
      */
-    public function update(InstanceInterface $model)
+    public function update($id, array $array)
     {
-        //@todo modify with implementation
+       return $this->model->where('id','=',$id)->update($array);
     }
 
     /**
      * @inheritDoc
      */
-    public function create(array $attributes)
+    public function create(array $array)
     {
-        //@todo modify with implementation
+        return $this->model->create($array);
     }
 
     /**
      * @inheritDoc
      */
-    public function save(InstanceInterface $model)
+    public function delete($id)
     {
-        //@todo modify with implementation
+        return $this->model->destroy($id);
     }
 
     /**
      * @inheritDoc
      */
-    public function delete(InstanceInterface $model)
+    public function paginate($count)
     {
-        //@todo modify with implementation
+        return $this->model->paginate($count);
+    }
+	
+    /**
+     * @inheritDoc
+     */
+    public function orderBy($column, $direction)
+    {
+        return $this->model->orderBy($column, $direction);
+    }
+	
+    /**
+     * @inheritDoc
+     */
+    public function lists($column, $id)
+    {
+        return $this->model->lists($column, $id);
     }
 }
