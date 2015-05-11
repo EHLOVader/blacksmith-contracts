@@ -5,16 +5,7 @@ use Contracts\Repositories\RepositoryInterface;
 
 class DbRepository implements RepositoryInterface
 {
-	
-	/**
-     * @inheritDoc
-     */	
-	public function all()
-    {
-        return $this->model->all();
-    }
     
-
     /**
      * @inheritDoc
      */
@@ -42,14 +33,6 @@ class DbRepository implements RepositoryInterface
     /**
      * @inheritDoc
      */
-    public function update($id, array $array)
-    {
-       return $this->model->where('id','=',$id)->update($array);
-    }
-
-    /**
-     * @inheritDoc
-     */
     public function create(array $array)
     {
         return $this->model->create($array);
@@ -58,9 +41,25 @@ class DbRepository implements RepositoryInterface
     /**
      * @inheritDoc
      */
-    public function delete($id)
+    public function delete(InstanceInterface $model)
     {
-        return $this->model->destroy($id);
+        return $model->delete();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function update(InstanceInterface $model)
+    {
+        return $model->update();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function save(InstanceInterface $model)
+    {
+        return $model->save();
     }
 
     /**
@@ -70,7 +69,7 @@ class DbRepository implements RepositoryInterface
     {
         return $this->model->paginate($count);
     }
-	
+    
     /**
      * @inheritDoc
      */
@@ -78,7 +77,7 @@ class DbRepository implements RepositoryInterface
     {
         return $this->model->orderBy($column, $direction);
     }
-	
+    
     /**
      * @inheritDoc
      */
