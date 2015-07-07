@@ -1,4 +1,4 @@
-<?php namespace Validators;
+<?php namespace App\Validators;
 
 /**
  * This file contains a class that abstracts Laravel's Validator facade. Extend

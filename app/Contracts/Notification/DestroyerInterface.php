@@ -1,10 +1,10 @@
-<?php namespace Contracts\Notification;
+<?php namespace App\Contracts\Notification;
 
 /**
  * Handles creator events
  */
 
-use Contracts\Instances\InstanceInterface;
+use App\Contracts\Instances\InstanceInterface;
 
 interface DestroyerInterface
 {

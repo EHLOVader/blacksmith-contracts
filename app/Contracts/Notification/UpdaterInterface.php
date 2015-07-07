@@ -1,11 +1,11 @@
-<?php namespace Contracts\Notification;
+<?php namespace App\Contracts\Notification;
 
 /**
  * Handles creator events
  */
 
-use Contracts\Instances\InstanceInterface;
-use Validators\Validator;
+use App\Contracts\Instances\InstanceInterface;
+use App\Validators\Validator;
 
 interface UpdaterInterface
 {

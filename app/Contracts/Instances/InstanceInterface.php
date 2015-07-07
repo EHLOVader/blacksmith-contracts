@@ -1,4 +1,4 @@
-<?php namespace Contracts\Instances;
+<?php namespace App\Contracts\Instances;
 
 interface InstanceInterface
 {
