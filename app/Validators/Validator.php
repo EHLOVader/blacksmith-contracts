@@ -48,6 +48,18 @@ abstract class Validator
     }
 
     /**
+     * Returns the validator with a static error message
+     *
+     * @param string $message
+     *
+     * @return $this
+     */
+    public function withError($message) {
+        $this->errors = $message;
+        return $this;
+    }
+
+    /**
      * Getter method for the errors property
      *
      * @return \Illuminate\Support\MessageBag
